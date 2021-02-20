@@ -4,7 +4,7 @@ const emailfield = document.querySelector("#emailfield");
 const emailarea = document.querySelector(".email-feedback");
 const passwordfield= document.querySelector("#passwordfield");
 const showpassword = document.querySelector("#showpassword");
-const SubmitBtn = document.querySelector(".submit-btn");
+const SubmitBtn = document.querySelector(".submit_btn");
 
 const PasswordToggle = (e) => {
 if (showpassword.textContent === "Show") {
@@ -25,6 +25,7 @@ emailfield.addEventListener("keyup", (e) => {
 
   emailfield.classList.remove("is-invalid");
   emailarea.style.display = "none";
+  SubmitBtn.removeAttribute("disabled");
 
   if (emailval.length > 0) {
     fetch("/authentication/validate-email", {
@@ -35,6 +36,7 @@ emailfield.addEventListener("keyup", (e) => {
       .then((data) => {
         console.log("data", data);
         if (data.email_error) {
+          SubmitBtn.setAttribute("disabled","");
           emailfield.classList.add("is-invalid");
           emailarea.style.display = "block";
           emailarea.innerHTML = `<p>${data.email_error}</p>`;
@@ -49,6 +51,8 @@ usernamefield.addEventListener("keyup", (e) => {
 
   usernamefield.classList.remove("is-invalid");
   usernamearea.style.display = "none";
+  SubmitBtn.removeAttribute("disabled");
+
 
   if (usernameval.length > 0) {
     fetch("/authentication/validate-username", {
@@ -59,6 +63,7 @@ usernamefield.addEventListener("keyup", (e) => {
       .then((data) => {
         console.log("data", data);
         if (data.username_error) {
+          SubmitBtn.setAttribute("disabled","");
           usernamefield.classList.add("is-invalid");
           usernamearea.style.display = "block";
           usernamearea.innerHTML = `<p>${data.username_error}</p>`;

@@ -12,6 +12,7 @@
       <div class="card-body">
         <form class="" action="{% url 'register' %}" method="post">
           {% csrf_token %}
+          {% include 'partials/messages.html' %}
           <div class="form-group"><input type="text" class="form-control" name="username" id="usernamefield" placeholder="Username">
             <div class="username-feedback" style="display: none">
 
@@ -25,7 +26,7 @@
           <div class="form-group"><input type="password" class="form-control" name="password" id="passwordfield" placeholder="Password">
              <div class="float-right" id="showpassword" style="cursor:pointer">Show</div>
           </div>
-          <input type="submit" value="Register" class="btn btn-primary submit-btn">
+          <input type="submit" value="Register" class="btn btn-primary submit_btn">
         </form>
       </div>
     </div>
