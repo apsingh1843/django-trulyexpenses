@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'expenses',
     'authentication',
+    'userpreferences',
 ]
 
 MIDDLEWARE = [
@@ -83,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'income_expenses',
-        'USER': 'postgres',
-        'PASSWORD': 'ayush1234',
+        'USER': ,
+        'PASSWORD': ,
         'HOST': 'localhost'
     }
 }
